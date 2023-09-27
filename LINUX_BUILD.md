@@ -14,3 +14,5 @@ build the synth:
 
 binaries shall be in: `./VASTvaporizer/Builds/LinuxMakefile/build/`
 
+1. At first run check "disable GFX" in Preset->Settings tab, there is a GUI performance issue ATM.
+2. Vaporizer2's data must be placed somewhere, by now it searches inside `/tmp/` at first run, so place/symlink `Presets` `Noises` and `Tables` subfolders there, or wherever you want and set paths in the Preset->Settings tab.
