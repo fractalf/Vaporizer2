@@ -12,6 +12,8 @@ export Makefile:
 build the synth:  
 `CONFIG=Release make -j8 -C ./VASTvaporizer/Builds/LinuxMakefile/`
 
+"8" - is the nimber of CPU cores here, replace it with yours
+
 binaries shall be in: `./VASTvaporizer/Builds/LinuxMakefile/build/`
 
 1. At the first run check "disable GFX" in Preset->Settings tab, there is a GUI performance issue ATM.
