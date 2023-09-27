@@ -1605,7 +1605,7 @@ String VASTAudioProcessor::getVSTPath() {
 	return "";
 
 #elif JUCE_LINUX
-	return "/usr/lib/vst";
+	return "/tmp/";
 
 #elif JUCE_WINDOWS	
 	String Vaporizer2InstallPath = "";
@@ -1706,7 +1706,7 @@ String VASTAudioProcessor::getVSTPathAlternative() {
 	return "";
 
 #elif JUCE_LINUX
-	return "/usr/lib/vst";
+	return "/tmp/";
 
 #elif JUCE_WINDOWS	
 	const String currentDll(File::getSpecialLocation(File::currentApplicationFile).getFullPathName());
