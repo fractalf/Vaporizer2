@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="wPTx8T" name="VASTvaporizer2" projectType="audioplug" version="3.3.0"
               bundleIdentifier="com.vastdynamics.VAST2" includeBinaryInAppConfig="1"
-              buildVST="1" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="1"
+              buildVST="0" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="1"
               pluginName="Vaporizer2" pluginDesc="VAST Dynamics Vaporizer2 Hybrid Synthesizer Plug-in"
               pluginManufacturer="VAST Dynamics" pluginManufacturerCode="Vast"
               pluginCode="Vap2" pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
@@ -13,8 +13,7 @@
               buildAUv3="0" displaySplashScreen="0" reportAppUsage="0" splashScreenColour="Dark"
               buildStandalone="1" enableIAA="0" cppLanguageStandard="latest"
               companyCopyright="VAST Dynamics" headerPath="..\..\Source\Engine; ..\..\Source\Plugin; ..\..\Source; ..\..\Source\muFFT"
-              pluginFormats="buildVST,buildVST3,buildAU,buildAAX,buildStandalone"
-              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginFormats="buildAAX,buildAU,buildStandalone,buildVST3" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginAUMainType="'aumu'" pluginChannelConfigs="{2,2}" maxBinaryFileSize="20971520"
               jucerFormatVersion="1">
   <MAINGROUP id="xqLnpn" name="VASTvaporizer2">
