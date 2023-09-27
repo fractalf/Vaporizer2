@@ -1,7 +1,8 @@
 install JUCE dependencies: https://github.com/juce-framework/JUCE/blob/develop/docs/Linux%20Dependencies.md
 
 clone the repo:  
-`git clone -b linux-fixes https://github.com/KottV/Vaporizer2`
+`git clone -b linux-fixes https://github.com/KottV/Vaporizer2`  
+`cd Vaporizer2`
 
 build Projucer:  
 `CONFIG=Release make -j8 -C ./JUCE/extras/Projucer/Builds/LinuxMakefile/`
