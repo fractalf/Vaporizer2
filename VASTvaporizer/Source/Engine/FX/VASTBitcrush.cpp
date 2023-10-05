@@ -5,7 +5,6 @@ All modulators tested: OK
 */
 
 #include "VASTBitcrush.h"
-#include "../Filter/VASTBiQuadFilter.h"
 #include "../VASTEngineHeader.h"
 #include "../../Plugin/VASTAudioProcessor.h"
 #include "VASTEffect.h"
