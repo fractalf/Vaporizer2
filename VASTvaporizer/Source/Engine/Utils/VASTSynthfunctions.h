@@ -12,6 +12,7 @@ VAST Dynamics Audio Software (TM)
 #include <cmath>
 #include <string>
 #include <stdio.h>
+#include <xmmintrin.h>
 
 #define CONVEX_LIMIT 0.00398107
 #define CONCAVE_LIMIT 0.99601893
