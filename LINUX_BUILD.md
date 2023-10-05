@@ -1,4 +1,5 @@
 install JUCE dependencies: https://github.com/juce-framework/JUCE/blob/develop/docs/Linux%20Dependencies.md
+(though `ladspa-sdk libcurl4-openssl-dev libwebkit2gtk-4.0-dev` aren't needed here)
 
 clone the repo:  
 `git clone -b linux-fixes https://github.com/KottV/Vaporizer2`  
