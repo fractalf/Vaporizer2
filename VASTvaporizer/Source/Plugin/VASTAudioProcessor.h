@@ -32,14 +32,14 @@
 #define CONST_USER_PATCH_INDEX 9999
 
 #ifdef JUCE_WINDOWS
-	#ifdef _WIN64	
+	#ifdef _WIN64
 		#define CONST_DLL_NAME "VASTvaporizer64.dll"
 	#else
 		#define CONST_DLL_NAME "VASTvaporizer.dll"
 	#endif
 
 #else
-	#ifdef JUCE_MAC	
+	#ifdef JUCE_MAC
 		#define CONST_DLL_NAME "VASTvaporizer.component"
 	#endif
 #endif
@@ -89,9 +89,9 @@ public:
 	bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
 
 	bool isInErrorState() { return bIsInErrorState; };
-	void setErrorState(int state) { 
-		bIsInErrorState = true; 
-		iErrorState = state; 
+	void setErrorState(int state) {
+		bIsInErrorState = true;
+		iErrorState = state;
 	};
 	int getErrorState() { return iErrorState; };
 	bool wantsUIAlert() { return mUIAlert; };
@@ -121,29 +121,29 @@ public:
 	bool needsUIUpdate_sliders() { return mUIUpdateFlag_sliders; };
 	int needsUIUpdate_slider1dest() { return mUIUpdateFlag_slider1dest; };
 	int needsUIUpdate_slider2dest() { return mUIUpdateFlag_slider2dest; };
-	void clearUIUpdateFlag() { mUIUpdateFlag = false; 
+	void clearUIUpdateFlag() { mUIUpdateFlag = false;
 		mUIUpdateFlag_tabs = false;
 		mUIUpdateFlag_matrix = false;
 		mUIUpdateFlag_sliders = false;
 		mUIUpdateFlag_slider1dest = -1;
 		mUIUpdateFlag_slider2dest = -1;
-	}; 
+	};
 	void requestUIUpdate(bool tabs = true, bool matrix = true, bool sliders = true, int slider1dest = -1, int slider2dest = -1 ) {
-		mUIUpdateFlag = true; 
+		mUIUpdateFlag = true;
 		mUIUpdateFlag_tabs = tabs;
 		mUIUpdateFlag_matrix = matrix;
 		mUIUpdateFlag_sliders = sliders;
 		mUIUpdateFlag_slider1dest = slider1dest;
-		mUIUpdateFlag_slider2dest = slider2dest;	
+		mUIUpdateFlag_slider2dest = slider2dest;
 	};
 	void requestUILoadAlert() { mUIAlert = true; };
 
     //==============================================================================
     const String getName() const override;
-  
+
 	void setParameterText(StringRef parName, StringRef textVal, bool bSilent);
-	AudioProcessorValueTreeState& getParameterTree() { 
-		return m_parameterState;  
+	AudioProcessorValueTreeState& getParameterTree() {
+		return m_parameterState;
 	};
 
 	VASTVUMeterSource* getMeterSource() {
@@ -187,7 +187,7 @@ public:
 	void getCurrentProgramStateInformation(juce::MemoryBlock &destData) override; //preset
     void setStateInformation (const void* data, int sizeInBytes) override; //bank
 	void setCurrentProgramStateInformation(const void *data, int sizeInBytes) override;
-	
+
 	//void atomicPluginStateUpdate();
 	void addChunkTreeState(ValueTree* treeState);
 
@@ -200,8 +200,8 @@ public:
 	bool loadPatchXML(XmlDocument* xmlDoc, bool bNameOnly, const VASTPresetElement* preset, int index, VASTPresetElement& resultPresetData);
 	static String getVSTPath();
 	static String getVSTPathAlternative();
-	void loadPreset(int index);	
-	bool loadUserPatchMetaData(File file, VASTPresetElement& lPreset);	
+	void loadPreset(int index);
+	bool loadUserPatchMetaData(File file, VASTPresetElement& lPreset);
 	void randomizePatch();
 
 	String getVersionString();
@@ -225,12 +225,12 @@ public:
 	void addModMatrixLookupTable(int modMatrixDestination, float rangeStart, float rangeEnd, float rangeSkew, StringRef paramID, AudioProcessorParameterWithID* param);
 	sModMatrixLookup m_modMatrixLookupTable[M_MODMATRIX_MAX_DESTINATIONS];
 	std::unordered_multimap<int, String> m_mapModdestToParameterName; //fast: hashed //declare before vastxperience
-	std::unordered_map<String, int> m_mapParameterNameToModdest; //declare before vastxperience	
+	std::unordered_map<String, int> m_mapParameterNameToModdest; //declare before vastxperience
 	Array<VASTParameterSlider*> m_mapParameterNameToControl; //declare before vastxperience
 
 	UndoManager m_undoManager; //declare before parameterState
 	AudioProcessorValueTreeState m_parameterState; //declare before vastxperience
-	
+
 	//==============================================================================
 	CVASTXperience m_pVASTXperience;
 	//==============================================================================
@@ -251,11 +251,11 @@ public:
 	String m_UserPresetRootFolder; // root folder for user presets - read from config file, set in preset component
 	String m_UserWavetableRootFolder; // root folder for user presets - read from config file, set in preset component
 	String m_UserWavRootFolder; // root folder for user presets - read from config file, set in preset component
-	bool m_disableOpenGLGFX = false; // settings
+	bool m_disableOpenGLGFX = true; // settings
 
 	int m_iUserTargetPluginWidth = 0;
 	int m_iUserTargetPluginHeight = 0;
-	
+
 	float getPluginScaleWidthFactor() {
 		if (m_iDefaultPluginWidth != 0)
 			return m_iUserTargetPluginWidth / float(m_iDefaultPluginWidth);
@@ -319,7 +319,7 @@ public:
 	int getDrawMode() { return m_iWTEditorDrawMode; };
 	int getGridMode() { return m_iWTEditorGridMode; };
 	int getBinMode() { return m_iWTEditorBinMode; };
-	int getBinEditMode() { return m_iWTEditorBinEditMode; };	   
+	int getBinEditMode() { return m_iWTEditorBinEditMode; };
 
 	//--------------------------------------------------------------------------------------------------------------------
 
@@ -329,7 +329,7 @@ public:
 
 	int autoParamGetDestination(String parametername);
 	String autoDestinationGetParam(int modmatdest);
-	
+
 	static void threadedPingCheck(Component::SafePointer<Label> safePointerLabel, VASTAudioProcessor* processor);
 
 	static void passTreeToAudioThread(ValueTree tree, bool externalRepresentation, VASTPresetElement preset, int index, VASTAudioProcessor* processor, bool isSeparateThread, bool initOnly);
@@ -343,7 +343,7 @@ public:
 	int m_activeLookAndFeel = 3; //new default: dark
 	int m_uiFontSize = 0; //default 100%
 	void initLookAndFeels();
-	OwnedArray<VASTLookAndFeel> vastLookAndFeels; 
+	OwnedArray<VASTLookAndFeel> vastLookAndFeels;
 	VASTLookAndFeel* getCurrentVASTLookAndFeel() {
 		VASTLookAndFeel* lf = vastLookAndFeels[m_activeLookAndFeel];
 		vassert(lf != nullptr);
@@ -393,7 +393,7 @@ private:
     //==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VASTAudioProcessor)
 
-	//bool writeLicense(const String &name, const String &email, const String &cuno, const String &purdat);	
+	//bool writeLicense(const String &name, const String &email, const String &cuno, const String &purdat);
 	juce::uint32 m_tSetChunkCalled = 0;
 
 	std::string  XOREncrypt(std::string  a_sValue, std::string  a_sKey);
@@ -402,11 +402,11 @@ private:
 	//void convertHexToBinary(std::string  & output, std::string  & input);
 	void convertASCIIhexToString(std::string  & output, std::string  & input);
 	//void convertBinaryToHex(std::string  & output, std::string  & input);
-  
+
 	void checkForNewerVersion(String resultString);
 
 	String FloatArrayToString(float* fData, int numFloat)
-	{//Return String of multiple float values separated by commas 
+	{//Return String of multiple float values separated by commas
 		String result = "";
 		if (numFloat<1)
 			return result;
@@ -426,7 +426,7 @@ private:
 		return ((TokenCount <= maxNumFloat) ? resultCount : -1);
 	}
 	String StringArrayToString(String* sData, int numFloat)
-	{//Return String of multiple float values separated by commas 
+	{//Return String of multiple float values separated by commas
 		String result = "";
 		if (numFloat<1)
 			return result;
@@ -442,7 +442,7 @@ private:
 		int TokenCount = Tokenizer.addTokens(sStringCSV, ",", "");
 		int resultCount = (maxNumFloat <= TokenCount) ? maxNumFloat : TokenCount;
 		for (int i = 0; i<resultCount; i++)//only go as far as resultCount for valid data
-			sData[i] = Tokenizer[i];//fill data using String class 
+			sData[i] = Tokenizer[i];//fill data using String class
 		return ((TokenCount <= maxNumFloat) ? resultCount : -1);
 	}
 	bool m_initCompleted = false;
@@ -487,7 +487,7 @@ private:
 	sMidiMap m_MidiMapping[128]; // there are only 128 MIDI CCs
 	void midiParameterLearned(int iCC);
 	//void writeMappingForDocumentation();
-	
+
 	int m_iDumpFileSampleCount = 0;
 	std::unique_ptr<FileOutputStream> m_DumpOutStream = nullptr;
 	bool m_bDumpFileCreated = false;
@@ -503,11 +503,11 @@ private:
 	VASTVUMeterSource m_meterSource;
 
 	int m_iNumPassTreeThreads = 0;
-	bool getTreeThreadLock();	
+	bool getTreeThreadLock();
 
     Label safePointerLabel; //for safePointerOnly
-    
+
 	VASTAudioProcessorEditor* cachedVASTEditor = nullptr;
 };
 
-#endif  
+#endif
